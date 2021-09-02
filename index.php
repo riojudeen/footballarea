@@ -1,6 +1,4 @@
-
 <?php
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -147,8 +145,8 @@
     <!-- ======= Icon Boxes Section ======= -->
     <section id="icon-boxes" class="icon-boxes">
       <div class="container">
-        <div class="row dataarea">
-          
+        <div class="row " id="dataarea">
+          <!-- hasil looping -->
         </div>
       </div>
     </section><!-- End Icon Boxes Section -->
@@ -244,7 +242,7 @@
                             </div>
                           </div>`
             });
-            $('.dataarea').html(toHtml)
+            $('#dataarea').html(toHtml)
         })
         .catch(err => console.log(err))
     }
