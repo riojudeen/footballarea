@@ -151,82 +151,18 @@
     <!-- ======= Icon Boxes Section ======= -->
     <section id="icon-boxes" class="icon-boxes">
       <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a data-toggle="modal" data-target="#staticBackdrop">Negara 1</a></h4>
-                <p class="description">20 competitions</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a href="">Negara 1</a></h4>
-                <p class="description">20 competitions</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a href="">Negara 1</a></h4>
-                <p class="description">20 competitions</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a href="">Negara 1</a></h4>
-                <p class="description">20 competitions</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a href="">Negara 1</a></h4>
-                <p class="description">20 competitions</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a href="">Negara 1</a></h4>
-                <p class="description">20 competitions</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a href="">Negara 1</a></h4>
-                <p class="description">20 competitions</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a href="">Negara 1</a></h4>
-                <p class="description">20 competitions</p>
-              </div>
-            </div>
-          </div>
+        <div class="row dataarea">
+          
         </div>
       </div>
     </section><!-- End Icon Boxes Section -->
+    <section>
+      <div class="container">
+        <div class="row listdata">
+          
+        </div>
+      </div>
+    </section>
 
 
   </main><!-- End #main -->
@@ -279,15 +215,47 @@
   </script> -->
   <script>
     const token = '35d350eea8964c479a27b26f0559355f'
-    const API = 'https://api.football-data.org/v2/competitions/CL/matches'
-    const area = 'https://api.football-data.org/v2/areas/{id}'
-    axios.get(API, {
-      headers: { 'X-Auth-Token': token }
-    }).then(response => console.log(response)).catch(err => console.log(err))
+    const API = 'http://api.football-data.org/v2/areas/'
+    const area = 'https://api.football-data.org/v2/competitions/'
+    function data(a){
+        axios.get(a, {
+        headers: { 'X-Auth-Token': token }
+      }).then(response => console.log(response)).catch(err => console.log(err))
+    }
+    data(API)
+
     // data pertandingan
-    
+    // axios.get(data(API)).then(resp => {
+    //   console.log(resp.data);
+    // }).catch(err => console.log(err))
+    const getListData = () => {
+        axios.get(API, {
+          headers: { 'X-Auth-Token': token }
+        })
+        .then(response => {
+            let Data = response.data.areas
+              // console.log(Data)
+            let toHtml = ""
+              Data.forEach(areas => {
+                toHtml += `<div class="col-md-6 col-lg-3  mb-5 mb-lg-2">
+                            <div class="card">
+                              <div class="card-body">
+                                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                                <h4 class="title"><a data-toggle="modal" id="${areas.id}" data-target="#staticBackdrop">${areas.name}</a></h4>
+                                <p class="description">20 competitions</p>
+                              </div>
+                            </div>
+                          </div>`
+            });
+            $('.dataarea').html(toHtml)
+        })
+        .catch(err => console.log(err))
+    }
+    getListData()
     
   </script>
+  <!-- get data -->
+
 </body>
 
 </html>
