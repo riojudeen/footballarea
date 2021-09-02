@@ -1,0 +1,131 @@
+Full Stack
+Batch 5
+Session 14
+spv class
+•
+28 Jun (Diedit 16 Agu)
+
+Session 14 - AJAX.pptx.pdf
+PDF
+
+ajax.html
+HTML
+Komentar kelas
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar AJAX</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Kelas</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="form-tambah">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input id="name" class="form-control" type="text" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <input id="description" class="form-control" type="text" name="description">
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate">Start Date</label>
+                                <input id="startDate" class="form-control" type="date" name="startDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="endDate">End Date</label>
+                                <input id="endDate" class="form-control" type="date" name="enDate">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="data-kelas" class="row"></div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const API = `http://service-classroom.herokuapp.com/api/`
+
+        $("#form-tambah").submit(function (e) {
+            e.preventDefault();
+            addClass()
+        });
+        const addClass = async () => {
+            const data = {
+                "name": $("#name").val(),
+                "description": $("#description").val(),
+                "startDate": $("#startDate").val(),
+                "endDate": $("#endDate").val()
+            }
+            try {
+                const request = await axios.post(API + "class", data)
+                alert("sukses")
+                $("#exampleModal").modal("hide")
+                getListClass()
+            } catch (err) {
+                alert(err.message)
+            }
+        }
+
+        const getListClass = () => {
+            axios.get(API + "class")
+                .then(response => {
+                    let dataKelas = response.data.data
+                    console.log(dataKelas)
+                    let listKelasHtml = ""
+                    dataKelas.forEach(kelas => {
+                        listKelasHtml += `
+                    <div class="col-md-3">
+                        <div class="card" >
+                            <img src="${kelas.img}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">${kelas.name}</h5>
+                                <p class="card-text">${kelas.description}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>`
+                    });
+                    $("#data-kelas").html(listKelasHtml)
+
+                })
+                .catch(err => console.log(err))
+        }
+        getListClass()
+    </script>
+</body>
+
+</html>
+ajax.html
+Menampilkan ajax.html.
