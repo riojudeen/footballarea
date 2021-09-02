@@ -89,11 +89,11 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="score.html">Score</a></li>
-          <li><a href="nextmatch.html">Next Match</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
+          <li><a href="score.php">Score</a></li>
+          <li><a href="nextmatch.php">Next Match</a></li>
           
-          <li><a href="contributor.html">Contributor</a></li>
+          <li><a href="contributor.php">Contributor</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
