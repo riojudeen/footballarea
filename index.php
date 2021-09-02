@@ -211,8 +211,8 @@
   </script> -->
   <script>
     const token = '35d350eea8964c479a27b26f0559355f'
-    const API = 'http://api.football-data.org/v2/areas/'
-    const benua = 'http://api.football-data.org/v2/areas/2267'
+    const API = 'https://api.football-data.org/v2/areas/'
+    const benua = 'https://api.football-data.org/v2/areas/2267'
     const area = 'https://api.football-data.org/v2/competitions/'
     function data(a){
         axios.get(a, {
@@ -255,7 +255,7 @@
     function modal(b){
       let id_benua = $(this).data('id')
       let benuaa = b
-      const link = 'http://api.football-data.org/v2/areas/'
+      const link = 'https://api.football-data.org/v2/areas/'
       let html = ""
         
       let modal = benuaa
