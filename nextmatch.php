@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,49 +88,49 @@
   <main id="main">
 
     <!-- ======= Icon Boxes Section ======= -->
+   
     <section id="icon-boxes" class="icon-boxes">
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-10 col-sm-1">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">
-                            Match Score
-                        </h5>
-                    </div>
-                    <div class="card-body">
-                      <div class="table">
-                          <table class="table  table-striped">
-                              <thead>
-                                  <tr>
-                                      <th>#</th>
-                                      <th>Competition</th>
-                                      <th>Team 1</th>
-                                      <th colspan="3" class="text-center">Score</th>
-                                      <th class="text-right">Team 2</th>
-                                  </tr>
-                                  
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>Premiere League</td>
-                                      <td>Juventus</td>
-                                      <td class="text-center">1</td>
-                                      <td class="text-center">:</td>
-                                      <td class="text-center">2</td>
-                                      <td class="text-right">AC Milan</td>
-                                  </tr>
-                              </tbody>
-                          </table>
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-md-10 col-sm-1">
+                  <div class="card">
+                      <div class="card-header">
+                          <h5 class="card-title">
+                              Next Match
+                          </h5>
                       </div>
-                    </div>
-                </div>
-            </div>
+                      <div class="card-body">
+                        <div class="table">
+                            <table class="table  table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Competition</th>
+                                        <th>Team 1</th>
+                                        <th class="text-center">Match</th>
+                                        <th class="text-right">Team 2</th>
+                                        <th>Date</th>
+                                    </tr>
+                                    
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Premiere League</td>
+                                        <td>Juventus</td>
+                                        <td class="text-center">vs</td>
+                                        <td class="text-right">AC Milan</td>
+                                        <td>1 September</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
-      </div>
-    </section><!-- End Icon Boxes Section -->
-    
+      </section><!-- End Icon Boxes Section -->
 
   </main><!-- End #main -->
   
