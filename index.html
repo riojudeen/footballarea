@@ -264,7 +264,30 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- <script>
+    //pake ajax
+    $.ajax({
+    headers: { 'X-Auth-Token': '35d350eea8964c479a27b26f0559355f' },
+      url: 'https://api.football-data.org/v2/competitions/CL/matches',
+      dataType: 'json',
+      type: 'GET',
+    }).done(function(response) {
+      // do something with the response, e.g. isolate the id of a linked resource   
+      console.log(response);
+    });
+  </script> -->
+  <script>
+    const token = '35d350eea8964c479a27b26f0559355f'
+    const API = 'https://api.football-data.org/v2/competitions/CL/matches'
+    const area = 'https://api.football-data.org/v2/areas/{id}'
+    axios.get(API, {
+      headers: { 'X-Auth-Token': token }
+    }).then(response => console.log(response)).catch(err => console.log(err))
+    // data pertandingan
+    
+    
+  </script>
 </body>
 
 </html>
